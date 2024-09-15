@@ -55,11 +55,12 @@ class AuthTest extends TestCase
     public function test_login_success_false(): void
     {
 
-        $response = $this->postJson('/api/login', [
+        $response = $this->postJson('/auth', [
             'username' => "tester",
             'password' => "PASSWORL"
 
         ]);
+        
 
         $response->assertStatus(401)
                 ->assertJson([
