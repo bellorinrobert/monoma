@@ -13,6 +13,11 @@ use Tests\TestCase;
 class LeadTest extends TestCase
 {
     use RefreshDatabase;
+    public function setUp(): void {
+        parent::setUp();
+
+        $this->seed();
+    }
     /**
      * Summary of test_create_success
      * @return void

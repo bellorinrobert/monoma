@@ -14,12 +14,21 @@ class AuthTest extends TestCase
 {
     use RefreshDatabase;
     /**
+     * Summary of setUp
+     * @return void
+     */
+    public function setUp(): void {
+        parent::setUp();
+
+        $this->seed();
+    }
+    /**
      * Summary of test_login_success_true
      * @return void
      */
     public function test_login_success_true(): void
     {
-
+        
         $response = $this->postJson('/auth', [
             'username' => "tester",
             'password' => "PASSWORD"
