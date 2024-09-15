@@ -15,11 +15,27 @@ class UserSeeder extends Seeder
     public function run(): void
     {
         //
-        \App\Models\User::factory()->create([
-            'username' => 'tester',
-            'password' => Hash::make('PASSWORD'),
-            'is_active' => true,
-        ]);
+        $userList = [
+            [
+                'username' => 'tester',
+                'password' => Hash::make('PASSWORD'),
+                'is_active' => true,
+                'role' => 'manager',
+                
+            ]
+            ,[
+                'username' => 'tester2',
+                'is_active' => true,
+                'role' => 'agent',
+                
+            ]
+        ];
+
+        foreach($userList as $user) {
+
+            \App\Models\User::factory()
+                        ->create($user);
+        }
         
     }
 }
