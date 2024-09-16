@@ -11,6 +11,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Lead\CreateLeadRequest;
 use App\Http\Resources\Lead\ShowLeadResource;
 use App\Repositories\LeadRepository;
+use PHPOpenSourceSaver\JWTAuth\Facades\JWTAuth;
 
 
 class CreateLeadController extends Controller
@@ -29,7 +30,11 @@ class CreateLeadController extends Controller
     {
         //
         // try {
-            $lead = $this->leadRepository->create($request->toArray());
+            $data = $request->toArray();
+            
+            $data['created_by'] = JWTAuth::user()->id;
+
+            $lead = $this->leadRepository->create($data);
 
             return response()->json(data: [
                 'meta' => [

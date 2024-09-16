@@ -33,7 +33,9 @@ class LeadRepository implements RepositoryInterface {
      * @return mixed
      */
     public function create(array $data): mixed {
-        return null;
+        
+        return Lead::create($data);
+
     }
     /**
      * Summary of update
