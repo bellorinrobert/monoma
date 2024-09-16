@@ -2,6 +2,9 @@
 
 namespace Tests\Feature\Lead;
 
+use App\Models\Lead;
+
+
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
@@ -9,6 +12,12 @@ use Tests\TestCase;
 class LeadShowTest extends TestCase
 {
     use RefreshDatabase;
+    
+    public function setUp(): void {
+        parent::setUp();
+
+        $this->seed();
+    }
     /**
      * A basic feature test example.
      */
@@ -18,8 +27,7 @@ class LeadShowTest extends TestCase
      */
     public function test_get_success_true(): void
     {
-        $this->seed();
-
+        
         $token = auth()
                 ->attempt([
                     'username' => 'tester'

@@ -15,6 +15,7 @@ class LeadSeeder extends Seeder
         //
         $leadList = [
             [
+                'id' => 1,
                 'name' => "Mi candidato",
                 'source' => "Fotocada",
                 'owner' => 2,
@@ -22,6 +23,7 @@ class LeadSeeder extends Seeder
                 'created_by' => 1
             ],
             [
+                'id' => 2,
                 'name' => "Mi candidato 2",
                 'source' => "Habitaclia",
                 'owner' => 2,

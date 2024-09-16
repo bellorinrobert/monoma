@@ -32,3 +32,8 @@ Route::get('lead/{id}', [
     , '__invoke'
 ]);
 
+Route::post('lead', [
+    \App\Http\Controllers\Lead\CreateLeadController::class
+    , '__invoke'
+]);
+
