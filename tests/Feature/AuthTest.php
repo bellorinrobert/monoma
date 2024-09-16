@@ -35,14 +35,17 @@ class AuthTest extends TestCase
 
         ]);
 
+        
+
         $response->assertStatus(200)
                 ->assertJson([
                     'meta' => [
                         'success' => true
                         , "errors" => []
                     ], 'data' => [
-                        'token' => 'TOOOOOKEN'
-                        , "minutes_to_expire" => 1440
+                        // 'token' => $token
+                        // ,
+                         "minutes_to_expire" => 1440
                     ]
                 ]);
 

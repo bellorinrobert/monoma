@@ -17,13 +17,18 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::middleware('api')->group(function () {
-    // Route::post('/register', [AuthController::class, 'register']);
-    // Route::post('/login', [AuthController::class, 'login']);
-    Route::post('/auth',[
-        \App\Http\Controllers\Auth\LoginController::class
-        , '__invoke'
-    ]);
-});
+Route::post('/auth',[
+    \App\Http\Controllers\Auth\LoginController::class
+    , '__invoke'
+])->name('login');
 
+Route::get('leads', [
+    \App\Http\Controllers\Lead\IndexLeadController::class
+    , '__invoke'
+]);
+
+Route::get('lead/{id}', [
+    \App\Http\Controllers\Lead\ShowLeadController::class
+    , '__invoke'
+]);
 
